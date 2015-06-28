@@ -22,7 +22,6 @@ end
 
 # My gems 
 gem 'devise'
-gem 'omniauth-facebook'
 
 gem 'jquery-rails'
 
