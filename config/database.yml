@@ -14,8 +14,8 @@ development:
   reconnect: false
   database: trashmail_development
   pool: 5
-  username: root
-  password:
+  username: demo
+  password: demo123
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -27,8 +27,8 @@ test:
   reconnect: false
   database: trashmail_test
   pool: 5
-  username: root
-  password:
+  username: demo
+  password: demo123
   socket: /tmp/mysql.sock
 
 production:
@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: trashmail_production
   pool: 5
-  username: root
-  password:
+  username: demo
+  password: demo123
   socket: /tmp/mysql.sock
