@@ -1,8 +1,7 @@
 Trashmail::Application.routes.draw do
+  get "home/index"
   devise_for :users
-  devise_scope :user do
-    root :to => 'devise/sessions#new'
-  end 
+  root :to => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
