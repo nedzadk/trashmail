@@ -1,16 +1,20 @@
-<h1>Profile for <%= current_user.email %></h1>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<h2>Edit your profile</h2>
+You can't continue before you complete this step
 <hr>
 <%= form_for :profile, url: {action: 'update'} do |f| %>
 
   <div class="form-group">
-    <%= f.label :full_name %><br>
-    <%= f.text_field :full_name, :class=>'form-control' %>
+    <%= f.label :full_name,'Enter your full name' %><br>
+    <%= f.text_field :full_name,:placeholder=>'Enter your full name here', :class=>'form-control' %><br>
   </div>
   <div class="form-group">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, :class=>'form-control' %>
+    <%= f.label :email,'Email you want to register (you can change it at any point)' %><br>
+    <%= f.text_field :email,:placeholder=>'your_name@watchit4.me', :class=>'form-control' %>
   </div>
   <%= f.submit %>
-
 <% end %>
+</div>
+</div>
 

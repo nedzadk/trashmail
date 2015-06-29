@@ -1,5 +1,7 @@
 Trashmail::Application.routes.draw do
-  get "messages/index"
+  get "messages/inbox"
+
+  get "messages/sent"
 
   get "messages/new"
 

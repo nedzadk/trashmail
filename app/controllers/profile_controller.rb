@@ -1,4 +1,5 @@
 class ProfileController < ApplicationController
+  skip_before_filter :complete_profile
   def index
     @profile = current_user.profile
   end
@@ -7,7 +8,7 @@ class ProfileController < ApplicationController
     @profile = current_user.profile
     @profile.update_attributes(params[:profile])
     if @profile.save 
-      redirect_to :controller=>'home', :action=>'index'
+      redirect_to '/messages/inbox'
     else
       redirect_to '/profile'
     end

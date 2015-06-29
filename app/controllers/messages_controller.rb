@@ -1,39 +1,56 @@
 class MessagesController < ApplicationController
+  #We require mandrill gem for sending email through their system
   require 'mandrill'
-  def index
-    @messages = current_user.messages.all
+
+  #Get all messages for user
+  def inbox
+    @messages = current_user.messages.find(:all, :order=>"created_at DESC")
   end
 
+  #Get all message like for inbox, filtering is done in view
+  def sent
+    @messages = current_user.messages.find(:all, :order=>"created_at DESC")
+  end
+  
+  #Create new message
   def new
     @message = current_user.messages.new
   end
 
+  #Manually create new message and send 
   def send_message
     m = Mandrill::API.new
+    #Prepare message object from params
     message = {
-      :subject => params[:message][:subject],
+      :subject => params[:message][:email_subject],
       :from_name => current_user.profile.full_name, 
-      :text=>params[:message][:mail_txt],
+      :text=>params[:message][:email_text],
       :to => [
         {
-        :email => params[:message][:mail_to],
-        :name => params[:message][:mail_to]
+        :email => params[:message][:email_to],
+        :name => params[:message][:email_to]
         }
       ],
-      :html => params[:message][:mail_txt],
+      :html => params[:message][:email_text],
       :from_email =>current_user.profile.email
     }
-    @mess = current_user.messages.new(params[:message])
-    @mess.mail_to = params[:message][:mail_to]
+    #Set message form data 
+    @mess = current_user.messages.new
+    @mess.user_id = current_user.id
+    @mess.email_to = params[:message][:email_to]
+    @mess.email_subject = params[:message][:email_subject]
+    @mess.email_text = params[:message][:email_text]
     @mess.message_type = 1
-    @mess.mail_status = 2;
+    @mess.message_status = 2;
     @mess.save
+    #Send message using mandril after saving it
     sending = m.messages.send message
-    redirect_to :controller=>'messages', :action=>'index'
-  
+    redirect_to :controller=>'messages', :action=>'inbox'
   end
 
   def reply
+    message_id = params[:mid]
+    @message = Message.find_by_id(message_id)
   end
 
   def view

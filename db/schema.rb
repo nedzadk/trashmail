@@ -15,16 +15,16 @@ ActiveRecord::Schema.define(:version => 20150629095336) do
 
   create_table "messages", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "message_type"
-    t.string   "mail_from"
-    t.string   "mail_to"
-    t.string   "subject"
-    t.text     "mail_html"
-    t.text     "mail_txt"
+    t.string   "email_from"
+    t.string   "email_to"
+    t.string   "email_subject"
+    t.text     "email_html"
+    t.text     "email_text"
     t.string   "sender_name"
-    t.integer  "mail_status"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "message_type"
+    t.integer  "message_status"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "profiles", :force => true do |t|

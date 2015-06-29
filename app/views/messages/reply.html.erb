@@ -1,3 +1,24 @@
-<h1>Unigo iframe demo</h1>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<center><h2>Message from <%= @message.email_from %></h2></center>
+<hr>
+<strong>Message subject:</strong><%= @message.email_subject %> <br>
+<p><strong>Message body:</strong> <br>
+<%= @message.email_text %></p>
+
+<%= form_for :message, url: {action: 'send_message'} do |f| %>
+
+  
+  <%= f.hidden_field :email_to, :class=>'form-control',:placeholder=>'Enter your friends email', :value=>@message.email_from %><br/>
+  <%= f.hidden_field :email_subject, :class=>'form-control',:placeholder=>'Enter message subject', :value=>'RE: '+ @message.email_subject %>
+
+  <div class="form-group">
+  <%= f.label :email_text, 'Reply to '+@message.email_from %><br/>
+  <%= f.text_area :email_text, :class=>'form-control',:placeholder=>'Enter message', :size=>'10', :value=>''%>
 </div>
-<iframe width="100%" height="1600" src="https://affiliates.textsurf.com">
+  <%= f.submit 'Reply', :class=>'btn btn-success' %>
+  <a href="/messages/inbox" class="btn btn-danger">Cancel</a>
+<% end %>
+</div>
+</div>
+<br>

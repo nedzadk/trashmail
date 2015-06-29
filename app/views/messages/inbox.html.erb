@@ -1,0 +1,23 @@
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<h2>Inbox <a href="/messages/new" class="btn btn-danger btn-xs">SEND MESSAGE</a></h2>
+    <table class="table">
+      <tr><th>From</th><th>Subject</th></tr>
+      <% @messages.each do |m| %>
+      <% if m.email_to == current_user.profile.email %>
+      <tr><td><a href="/messages/reply?mid=<%=m.id%>""><%= m.email_from %></a></td>
+        <td>
+          <% if m.message_status == 1 %>
+          <strong>
+          <% end %>
+         <a href="/messages/reply?mid=<%=m.id%>"><%= m.email_subject %></a></strong>
+          <% if m.message_status == 1 %>
+          </strong>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+  </div>
+
