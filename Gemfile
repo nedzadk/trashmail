@@ -23,6 +23,7 @@ end
 # My gems 
 gem 'devise'
 gem 'mandrill-api'
+gem 'test-unit'
 # end of My gems
 
 gem 'jquery-rails'
