@@ -16,8 +16,6 @@ Trashmail::Application.routes.draw do
   get "profile/index"
   get "profile/update"
   post "profile/update"
-
-  get "home/test_email_code"
   
   match 'profile' => 'profile#index'
   match 'incoming' => 'incoming#index'
@@ -25,8 +23,7 @@ Trashmail::Application.routes.draw do
   get "incoming/index"
   post "incoming/index"
 
-  get "home/index"
-  root :to => 'home#index'
+  root :to => 'messages#inbox'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
