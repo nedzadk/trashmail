@@ -22,7 +22,6 @@ end
 
 # My gems 
 gem 'devise'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 # end of My gems
 
 gem 'jquery-rails'
@@ -34,7 +33,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
