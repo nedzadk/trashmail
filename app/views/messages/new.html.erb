@@ -1,6 +1,6 @@
 <h2>Send new message</h2>
 
-<%= form_for :messages, url: {action: 'send_message'} do |f| %>
+<%= form_for :message, url: {action: 'send_message'} do |f| %>
 
   <%= f.label :mail_to %><br/>
   <%= f.text_field :mail_to %><br/>

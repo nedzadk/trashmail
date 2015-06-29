@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20150629095336) do
     t.string   "mail_from"
     t.string   "mail_to"
     t.string   "subject"
-    t.text     "mail_l_html"
+    t.text     "mail_html"
     t.text     "mail_txt"
     t.string   "sender_name"
     t.integer  "mail_status"

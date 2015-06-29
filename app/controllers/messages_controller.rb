@@ -11,19 +11,20 @@ class MessagesController < ApplicationController
   def send_message
     m = Mandrill::API.new
     message = {
-      :subject => params[:messages][:mail_subject],
+      :subject => params[:message][:subject],
       :from_name => current_user.profile.full_name, 
-      :text=>params[:messages][:mail_txt],
+      :text=>params[:message][:mail_txt],
       :to => [
         {
-        :email => params[:messages][:mail_to],
-        :name => params[:messages][:mail_to]
+        :email => params[:message][:mail_to],
+        :name => params[:message][:mail_to]
         }
       ],
-      :html => params[:messages][:mail_txt],
+      :html => params[:message][:mail_txt],
       :from_email =>current_user.profile.email
     }
-    @mess = current_user.messages.new(params[:messages])
+    @mess = current_user.messages.new(params[:message])
+    @mess.mail_to = params[:message][:mail_to]
     @mess.message_type = 1
     @mess.mail_status = 2;
     @mess.save

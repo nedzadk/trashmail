@@ -8,15 +8,18 @@ class IncomingController < ApplicationController
         mail_to = mess['msg']['email'].to_s
         subject = mess['msg']['subject'].to_s
         from = mess['msg']['from_email'].to_s
-       
-        #    prof = Profile.find_by_email(:mail_to)
-        #    @message = Message.new
-        #    @message.user_id = prof.user_id
-        #    @message.mail_from = from
-        #     @message.mail_to = mail_to
-        #    @message.mail_txt = text
-        #    @message.subject = subject
-        #    @message.save
+
+        prof = Profile.find_by_email(mail_to)
+        if prof
+          @message = Message.new
+          @message.user_id = prof.user_id
+          @message.mail_from = from
+          @message.mail_to = mail_to
+          @message.mail_txt = text
+          @message.subject = subject
+          @message.mail_status = 1
+          @message.save
+        end
       end
 
     end
