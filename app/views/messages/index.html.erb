@@ -5,15 +5,15 @@
   <% @messages.each do |m| %>
     <tr>
       <td>
-        <% if m.to.nil? %>
-          <strong>From:</strong> <%= m.from %>
+        <% if m.mail_to.nil? %>
+          <strong>From:</strong> <%= m.mail_from %>
         <% else %>
-          <strong>Sent to:</strong> <%= m.to %> 
+          <strong>Sent to:</strong> <%= m.mail_to %> 
         <% end %>
 
       </td>
       <td>
-        <% if m.status == 1 %>
+        <% if m.mail_status == 1 %>
           <strong><%= m.subject %></strong>
         <% else %>
           <%= m.subject %>

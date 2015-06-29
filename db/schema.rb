@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(:version => 20150629095336) do
   create_table "messages", :force => true do |t|
     t.integer  "user_id"
     t.integer  "message_type"
-    t.string   "from"
-    t.string   "to"
+    t.string   "mail_from"
+    t.string   "mail_to"
     t.string   "subject"
-    t.text     "html"
-    t.text     "txt"
-    t.string   "name"
-    t.integer  "status"
+    t.text     "mail_l_html"
+    t.text     "mail_txt"
+    t.string   "sender_name"
+    t.integer  "mail_status"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
