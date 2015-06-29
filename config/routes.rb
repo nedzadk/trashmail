@@ -1,4 +1,14 @@
 Trashmail::Application.routes.draw do
+  get "messages/index"
+
+  get "messages/new"
+
+  post "messages/send_message"
+
+  get "messages/reply"
+
+  get "messages/view"
+
   devise_for :users
 
   get "profile/index"

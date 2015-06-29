@@ -1,0 +1,16 @@
+<h2>Send new message</h2>
+
+<%= form_for :messages, url: {action: 'send_message'} do |f| %>
+
+  <%= f.label :to %><br/>
+  <%= f.text_field :to %><br/>
+
+  <%= f.label :subject %><br/>
+  <%= f.text_field :subject %>
+  <br/>
+  <%= f.label :txt %><br/>
+  <%= f.text_area :txt %>
+
+  <br/>
+  <%= f.submit 'Send message' %>
+<% end %>

@@ -1,0 +1,24 @@
+<a href="/messages/new" class="btn btn-success">New message</a>
+<h2>Messages</h2>
+<table class="table">
+  <tr><th></th><th>Subject</th></tr>
+  <% @messages.each do |m| %>
+    <tr>
+      <td>
+        <% if m.to.nil? %>
+          <strong>From:</strong> <%= m.from %>
+        <% else %>
+          <strong>Sent to:</strong> <%= m.to %> 
+        <% end %>
+
+      </td>
+      <td>
+        <% if m.status == 1 %>
+          <strong><%= m.subject %></strong>
+        <% else %>
+          <%= m.subject %>
+        <% end %>
+      </td>
+    </tr>
+<% end %>
+</table>
