@@ -42,7 +42,7 @@ class MessagesController < ApplicationController
     @mess.save
     #Send message using mandril after saving it
     sending = m.messages.send message
-    redirect_to :controller=>'messages', :action=>'inbox'
+    redirect_to '/messages/inbox'
   end
 
   def reply
