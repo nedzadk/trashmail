@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_one :profile
   has_many :messages
+  before_create :build_profile
+  accepts_nested_attributes_for :profile
 end

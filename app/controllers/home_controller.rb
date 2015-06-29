@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   require 'mandrill'
   def index
   end
-  def send_email_code
+  def test_email_code
     m = Mandrill::API.new
     message = {
       :subject => "Hi there",
@@ -14,6 +14,7 @@ class HomeController < ApplicationController
         :name => "Nedzad Kulelija"
         }
       ],
+      :html => "Hi man how are you?",
       :from_email =>"ninja@watchit4.me"
     }
 

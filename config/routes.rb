@@ -1,16 +1,19 @@
 Trashmail::Application.routes.draw do
+  devise_for :users
+
   get "profile/index"
+  get "profile/update"
+  post "profile/update"
 
-  get "profile/edit"
-
+  get "home/test_email_code"
+  
+  match 'profile' => 'profile#index'
   match 'incoming' => 'incoming#index'
 
   get "incoming/index"
   post "incoming/index"
 
-
   get "home/index"
-  devise_for :users
   root :to => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

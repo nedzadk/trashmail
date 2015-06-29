@@ -1,2 +1,16 @@
-<h1>Profile#index</h1>
-<p>Find me in app/views/profile/index.html.erb</p>
+<h1>Profile for <%= current_user.email %></h1>
+<hr>
+<%= form_for :profile, url: {action: 'update'} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :full_name %><br>
+    <%= f.text_field :full_name, :class=>'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, :class=>'form-control' %>
+  </div>
+  <%= f.submit %>
+
+<% end %>
+

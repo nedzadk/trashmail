@@ -1,2 +1,8 @@
-<h1>Profile#edit</h1>
-<p>Find me in app/views/profile/edit.html.erb</p>
+<h1>Profile for <%= current_user.email %></h1>
+<hr>
+<%= form_for :profile do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>@watchit4.me
+  <%= f.submit %>
+<% end %>
+
