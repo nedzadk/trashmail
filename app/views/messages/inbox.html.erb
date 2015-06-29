@@ -5,7 +5,7 @@
       <tr><th>From</th><th>Subject</th></tr>
       <% @messages.each do |m| %>
       <% if m.email_to == current_user.profile.email %>
-      <tr><td><a href="/messages/reply?mid=<%=m.id%>""><%= m.email_from %></a></td>
+      <tr><td><a href="/messages/reply?mid=<%=m.id%>"><%= m.email_from %></a></td>
         <td>
           <% if m.message_status == 1 %>
           <strong>

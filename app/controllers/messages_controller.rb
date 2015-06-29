@@ -35,11 +35,8 @@ class MessagesController < ApplicationController
       :from_email =>current_user.profile.email
     }
     #Set message form data 
-    @mess = current_user.messages.new
+    @mess = current_user.messages.new(params[:message])
     @mess.user_id = current_user.id
-    @mess.email_to = params[:message][:email_to]
-    @mess.email_subject = params[:message][:email_subject]
-    @mess.email_text = params[:message][:email_text]
     @mess.message_type = 1
     @mess.message_status = 2;
     @mess.save
@@ -51,6 +48,8 @@ class MessagesController < ApplicationController
   def reply
     message_id = params[:mid]
     @message = Message.find_by_id(message_id)
+    @message.message_status = 2
+    @message.save
   end
 
   def view
