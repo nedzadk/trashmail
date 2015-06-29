@@ -1,6 +1,13 @@
 Trashmail::Application.routes.draw do
+  get "profile/index"
+
+  get "profile/edit"
+
+  match 'incoming' => 'incoming#index'
+
   get "incoming/index"
   post "incoming/index"
+
 
   get "home/index"
   devise_for :users
