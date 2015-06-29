@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_action :authenticate_user!
   before_filter :complete_profile
 
    def complete_profile
