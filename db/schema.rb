@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150629065854) do
+ActiveRecord::Schema.define(:version => 20150629095336) do
+
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "message_type"
+    t.string   "from"
+    t.string   "to"
+    t.string   "subject"
+    t.text     "html"
+    t.text     "txt"
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "full_name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "profiles", ["email"], :name => "index_profiles_on_email", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

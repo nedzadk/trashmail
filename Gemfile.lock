@@ -46,6 +46,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.45.3)
     execjs (2.5.2)
     hike (1.2.3)
     i18n (0.7.0)
@@ -58,6 +59,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     mime-types (1.25.1)
     multi_json (1.11.1)
     mysql2 (0.3.18)
@@ -125,8 +129,12 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
+  mandrill-api
   mysql2
   rails (= 3.2.22)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   unicorn
+
+BUNDLED WITH
+   1.10.3

@@ -1,4 +1,7 @@
 Trashmail::Application.routes.draw do
+  get "incoming/index"
+  post "incoming/index"
+
   get "home/index"
   devise_for :users
   root :to => 'home#index'
