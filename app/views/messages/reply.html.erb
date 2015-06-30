@@ -7,8 +7,6 @@
 <%= @message.email_text %></p>
 
 <%= form_for :message, url: {action: 'send_message'} do |f| %>
-
-  
   <%= f.hidden_field :email_to, :class=>'form-control',:placeholder=>'Enter your friends email', :value=>@message.email_from %><br/>
   <%= f.hidden_field :email_subject, :class=>'form-control',:placeholder=>'Enter message subject', :value=>'RE: '+ @message.email_subject %>
 
