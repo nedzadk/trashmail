@@ -1,4 +1,5 @@
 class IncomingController < ApplicationController
+  skip_before_filter :authenticate_user!
   #Mandrill Rails gem for parsing mandrill webhooks, easy way
   include Mandrill::Rails::WebHookProcessor
 
