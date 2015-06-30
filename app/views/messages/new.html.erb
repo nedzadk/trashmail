@@ -5,7 +5,7 @@
 <%= form_for :message, url: {action: 'send_message'} do |f| %>
 <div class="form-group">
   <%= f.label :email_to, 'Email to:' %><br/>
-  <%= f.text_field :email_to, :class=>'form-control',:placeholder=>'Enter your friends email' %><br/>
+  <%= f.text_field :email_to, :class=>'form-control',:placeholder=>'Enter your friends email' %>
 </div>
 <div class="form-group">
   <%= f.label :email_subject, 'Message subject' %><br/>
